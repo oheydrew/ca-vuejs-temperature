@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>JS Playground</title>
+    <script defer src="/scripts/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js"></script>
+    <link rel="stylesheet" href="styles/build/styles.css">
+</head>
+<body>
+    <content>
+        <div class="container" id="app">
+            <div class="temp-converter" id="tempConverter">
+                <h1>Temperature Converter!</h1>
+            
+                <div id="far2cel" v-if="scale === 'celsius'">
+                <p>Input Fahrenheit Temperature:</p>
+                <input v-model="fahrenheit" type="text" placeholder="Temperature?"><br/>
+                <p>Celsius: <span>{{fahrenheitToCelsius}}</span></p>
+                </div>
+            
+                <div id="cel2far" v-if="scale === 'fahrenheit'">
+                <p>Input Celsius Temperature:</p>
+                <input v-model="celsius" type="text" placeholder="Temperature?"><br/>
+                <p>Fahrenheit: <span>{{celsiusToFahrenheit}}</span></p>
+                </div>
+            
+                <button v-on:click="swapScale()">Change Scale</button><br/>
+            </div>
+            
+            <br/>
+            <h1>Some Other Silliness</h1>
+            
+            <input v-model="message" type="text" placeholder="Try typing something"><br/>
+            <button v-on:click="clearMessage()">clear</button><br/>
+            
+            <h3>Here's an image!</h3><br/>
+            <button v-on:click="showImage()">{{buttonMsg}}</button><br/>
+            <img v-bind:src="imageTest" class="center"/>
+        </div>
+    </content>
+</body>
+</html>
